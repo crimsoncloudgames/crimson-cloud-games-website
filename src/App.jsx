@@ -12,6 +12,10 @@ import ashesShot6 from "./assets/ashes-shot-6.png";
 import ashesShot7 from "./assets/ashes-shot-7.png";
 import ashesShot8 from "./assets/ashes-shot-8.png";
 import ashesShot9 from "./assets/ashes-shot-9.png";
+import iacShot1 from "./assets/iac-shot-1.png";
+import iacShot2 from "./assets/iac-shot-2.png";
+import iacShot3 from "./assets/iac-shot-3.png";
+import iacShot4 from "./assets/iac-shot-4.png";
 function SteamStoreWidget({ appId, titleFallback, url }) {
   if (!appId) {
     return (
@@ -96,7 +100,12 @@ export default function CrimsonCloudGamesWebsite() {
       appId: "4165240",
       storeBlurb:
         "A dark comedy office game where every choice shapes productivity, panic, and workplace chaos.",
-      screenshots: [],
+      screenshots: [
+        { label: "Office setup", src: iacShot1 },
+        { label: "Employee reaction", src: iacShot2 },
+        { label: "Dark comedy dialogue", src: iacShot3 },
+        { label: "Choice driven gameplay", src: iacShot4 },
+      ],
       backgroundImage: null,
       widgetTitle: "Wishlist on Steam",
     },
