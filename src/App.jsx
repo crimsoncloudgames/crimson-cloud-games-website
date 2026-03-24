@@ -16,6 +16,7 @@ import iacShot1 from "./assets/iac-shot-1.png";
 import iacShot2 from "./assets/iac-shot-2.png";
 import iacShot3 from "./assets/iac-shot-3.png";
 import iacShot4 from "./assets/iac-shot-4.png";
+import iacCardBg from "./assets/iac-card-bg.png";
 function SteamStoreWidget({ appId, titleFallback, url }) {
   if (!appId) {
     return (
@@ -106,7 +107,7 @@ export default function CrimsonCloudGamesWebsite() {
         { label: "Dark comedy dialogue", src: iacShot3 },
         { label: "Choice driven gameplay", src: iacShot4 },
       ],
-      backgroundImage: null,
+      backgroundImage: iacCardBg,
       widgetTitle: "Wishlist on Steam",
     },
     {
