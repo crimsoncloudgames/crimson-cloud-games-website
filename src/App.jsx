@@ -6,6 +6,12 @@ import ashesShot1 from "./assets/ashes-shot-1.png";
 import ashesShot2 from "./assets/ashes-shot-2.png";
 import ashesShot3 from "./assets/ashes-shot-3.png";
 import ashesCardBg from "./assets/ashes-card-bg.webp";
+import ashesShot4 from "./assets/ashes-shot-4.png";
+import ashesShot5 from "./assets/ashes-shot-5.png";
+import ashesShot6 from "./assets/ashes-shot-6.png";
+import ashesShot7 from "./assets/ashes-shot-7.png";
+import ashesShot8 from "./assets/ashes-shot-8.png";
+import ashesShot9 from "./assets/ashes-shot-9.png";
 function SteamStoreWidget({ appId, titleFallback, url }) {
   if (!appId) {
     return (
@@ -85,9 +91,15 @@ export default function CrimsonCloudGamesWebsite() {
       storeBlurb:
         "A dark comedy office game where every cup you serve changes the workplace for better or worse.",
       screenshots: [
-        { label: "Screenshot 1", src: null },
-        { label: "Screenshot 2", src: null },
-        { label: "Screenshot 3", src: null },
+        { label: "Outside roof view", src: ashesShot1 },
+        { label: "Examination room", src: ashesShot2 },
+        { label: "Blood filled bathtub", src: ashesShot3 },
+        { label: "Asylum exterior in rain", src: ashesShot4 },
+        { label: "Blood stained examination table", src: ashesShot5 },
+        { label: "Blood soaked gurney", src: ashesShot6 },
+        { label: "Padded room", src: ashesShot7 },
+        { label: "Auditorium", src: ashesShot8 },
+        { label: "Attic storage room", src: ashesShot9 },
       ],
       backgroundImage: null,
       widgetTitle: "Steam widget",
