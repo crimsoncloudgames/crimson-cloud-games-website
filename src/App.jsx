@@ -17,6 +17,11 @@ import iacShot2 from "./assets/iac-shot-2.png";
 import iacShot3 from "./assets/iac-shot-3.png";
 import iacShot4 from "./assets/iac-shot-4.png";
 import iacCardBg from "./assets/iac-card-bg.png";
+import rodShot1 from "./assets/rod-shot-1.png";
+import rodShot2 from "./assets/rod-shot-2.png";
+import rodShot3 from "./assets/rod-shot-3.png";
+import rodShot4 from "./assets/rod-shot-4.png";
+import rodCardBg from "./assets/rod-card-bg.png";
 function SteamStoreWidget({ appId, titleFallback, url }) {
   if (!appId) {
     return (
@@ -115,24 +120,24 @@ export default function CrimsonCloudGamesWebsite() {
       year: "Available now",
       genre: "Physics arcade challenge",
       description:
-        "A fast restart, score chasing ball game built around momentum, collapsing floors, and pressure packed runs.",
+        "A precision physics arcade game about momentum and panic. The floor vanishes, your heart spikes, and you hit restart for one more run.",
       trailerLabel: "Roll or Die trailer",
-      trailerUrl: null,
-      trailerExternalUrl: null,
-      news: "Latest update: Ongoing support and content updates continue as the game moves toward 1.0.",
-      primaryCta: "View on Steam",
-      secondaryCta: "Press kit",
-      storeUrl: "#",
-      appId: null,
+      trailerUrl: "https://www.youtube.com/embed/t9e-cyB-T3c",
+      trailerExternalUrl: "https://youtu.be/t9e-cyB-T3c",
+      news: null,
+      primaryCta: "Buy on Steam",
+      secondaryCta: "Wishlist on Steam",
+      storeUrl: "https://store.steampowered.com/app/4236710/Roll_Or_Die/",
+      appId: "4236710",
       storeBlurb:
-        "A focused arcade score chaser built around speed, control, and relentless pressure.",
-      screenshots: [
-        { label: "Screenshot 1", src: null },
-        { label: "Screenshot 2", src: null },
-        { label: "Screenshot 3", src: null },
+        "A precision physics arcade game about momentum, collapsing floors, and one more run.",
+      screenshots: [{ label: "Obstacle course start", src: rodShot1 },
+        { label: "Time Attack", src: rodShot2 },
+        { label: "Obstacle course", src: rodShot3 },
+        { label: "Endless run", src: rodShot4 },
       ],
-      backgroundImage: null,
-      widgetTitle: "Steam widget",
+      backgroundImage: rodCardBg,
+      widgetTitle: "Buy on Steam",
     },
     {
       title: "Factory Reset",
@@ -395,14 +400,27 @@ export default function CrimsonCloudGamesWebsite() {
                       </div>
 
                       <div className="relative z-10 mt-6 flex flex-wrap gap-3">
-                        <a
-                          href={game.storeUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black transition hover:scale-[1.02]"
-                        >
-                          {game.primaryCta}
-                        </a>
+                        {game.primaryCta && game.storeUrl && (
+                          <a
+                            href={game.storeUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black transition hover:scale-[1.02]"
+                          >
+                            {game.primaryCta}
+                          </a>
+                        )}
+
+                        {game.secondaryCta && game.storeUrl && (
+                          <a
+                            href={game.storeUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] hover:bg-white/10"
+                          >
+                            {game.secondaryCta}
+                          </a>
+                        )}
                       </div>
                     </div>
 
