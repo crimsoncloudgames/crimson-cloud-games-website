@@ -535,57 +535,62 @@ export default function CrimsonCloudGamesWebsite() {
                 Follow Crimson Cloud Games
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/70">
-                Keep up with new trailers, updates, demos, launches, and development posts.
+                Follow Crimson Cloud Games for trailers, demos, development updates, and launch news.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3 text-sm">
                 <a
-                  href="#"
+                  href="https://store.steampowered.com/curator/45624604"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-white/75 transition hover:bg-white/10 hover:text-white"
                 >
                   Steam
                 </a>
+
                 <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-white/75 transition hover:bg-white/10 hover:text-white"
-                >
-                  itch.io
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-white/75 transition hover:bg-white/10 hover:text-white"
-                >
-                  Discord
-                </a>
-                <a
-                  href="#"
+                  href="https://www.youtube.com/@CrimsonCloudGames"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-white/75 transition hover:bg-white/10 hover:text-white"
                 >
                   YouTube
                 </a>
+
                 <a
-                  href="#"
+                  href="https://discord.gg/5xd6ZF8JMp"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-white/75 transition hover:bg-white/10 hover:text-white"
+                >
+                  Discord
+                </a>
+               
+                <a
+                  href="https://x.com/CrimsonCloudG"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-white/75 transition hover:bg-white/10 hover:text-white"
                 >
                   X
                 </a>
+
                 <a
-                  href="#"
+                  href="https://bsky.app/profile/crimsoncloudgames.bsky.social"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-white/75 transition hover:bg-white/10 hover:text-white"
                 >
                   Bluesky
+                </a>
+
+                <a
+                  href="https://crimson-cloud-games.itch.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-white/75 transition hover:bg-white/10 hover:text-white"
+                >
+                  itch.io
                 </a>
               </div>
             </div>
