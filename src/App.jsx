@@ -146,15 +146,15 @@ export default function CrimsonCloudGamesWebsite() {
     },
     {
       title: "Factory Reset",
-      year: "Earlier projectIn development",
-      genre: "Game project2.5D precision platformer",
+      year: "In development",
+      genre: "2.5D precision platformer",
       description:
-        "Stop moving, and you explode. A 2.5D precision platformer where momentum means survival inside a decaying factory ruled by a sarcastic AI.",
+        "A 2.5D precision platformer where stopping means exploding, momentum is survival, and a sarcastic AI rules the factory.",
       trailerLabel: "Factory Reset trailer",
       trailerUrl: "https://www.youtube.com/embed/VX1cdCLm5lo",
       trailerExternalUrl: "https://www.youtube.com/watch?v=VX1cdCLm5lo",
       news: null,
-      primaryCta: "Wishlist on Steame",
+      primaryCta: "Wishlist on Steam",
       secondaryCta: null,
       storeUrl: "https://store.steampowered.com/app/3750480/Factory_Reset/",
       appId: "3750480",
@@ -495,11 +495,10 @@ export default function CrimsonCloudGamesWebsite() {
                     Newsletter
                   </div>
                   <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">
-                    Build a direct audience you actually own
+                    Get updates from Crimson Cloud Games
                   </h2>
                   <p className="mt-5 max-w-2xl text-base leading-7 text-white/72">
-                    This signup area gives you a direct way to push game announcements,
-                    trailers, updates, playtests, and launches without relying on every social platform to do the job for you.
+                    Be the first to hear about new demos, trailers, playtests, launches, and major updates across Crimson Cloud Games projects.
                   </p>
                 </div>
 
@@ -515,12 +514,12 @@ export default function CrimsonCloudGamesWebsite() {
                       placeholder="Email address"
                       className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/35"
                     />
-                    <button className="w-full rounded-2xl bg-gradient-to-r from-red-500 to-red-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-red-950/40 transition hover:scale-[1.01]">
-                      Join the list
+                    <button className="w-full rounded-2xl bg-gradient-to-r from-red-500 to-red-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-red-950/40 transition hover:brightness-110">
+                      Join the newsletter
                     </button>
                   </div>
                   <p className="mt-4 text-xs leading-5 text-white/45">
-                    For now this is a visual signup block. Later we can connect it to a real newsletter tool.
+                    Join the Crimson Cloud Games mailing list for future demos, playtests, trailers, and launch updates.
                   </p>
                 </div>
               </div>
