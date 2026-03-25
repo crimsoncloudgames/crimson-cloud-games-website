@@ -487,45 +487,6 @@ export default function CrimsonCloudGamesWebsite() {
             </div>
           </section>
 
-          <section id="newsletter" className="mx-auto max-w-7xl px-6 py-20">
-            <div className="rounded-[2rem] border border-red-500/20 bg-gradient-to-r from-red-600/10 via-white/[0.03] to-cyan-500/10 p-8 md:p-12">
-              <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-                <div>
-                  <div className="text-sm font-medium uppercase tracking-[0.18em] text-red-300/80">
-                    Newsletter
-                  </div>
-                  <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">
-                    Get updates from Crimson Cloud Games
-                  </h2>
-                  <p className="mt-5 max-w-2xl text-base leading-7 text-white/72">
-                    Be the first to hear about new demos, trailers, playtests, launches, and major updates across Crimson Cloud Games projects.
-                  </p>
-                </div>
-
-                <div className="rounded-[1.75rem] border border-white/10 bg-black/20 p-6">
-                  <div className="space-y-4">
-                    <input
-                      type="text"
-                      placeholder="Your name"
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/35"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email address"
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-white/35"
-                    />
-                    <button className="w-full rounded-2xl bg-gradient-to-r from-red-500 to-red-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-red-950/40 transition hover:brightness-110">
-                      Join the newsletter
-                    </button>
-                  </div>
-                  <p className="mt-4 text-xs leading-5 text-white/45">
-                    Join the Crimson Cloud Games mailing list for future demos, playtests, trailers, and launch updates.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
           <section id="socials" className="mx-auto max-w-7xl px-6 pb-20">
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 md:p-10">
               <div className="text-sm font-medium uppercase tracking-[0.18em] text-red-300/80">
@@ -598,7 +559,7 @@ export default function CrimsonCloudGamesWebsite() {
         </main>
 
         <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-white/40">
-          © 2026 Crimson Cloud Games. Built to centralize games, updates, and direct audience growth.
+          © 2026 Crimson Cloud Games. All rights reserved.
         </footer>
       </div>
 
