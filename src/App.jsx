@@ -154,7 +154,7 @@ export default function CrimsonCloudGamesWebsite() {
       trailerUrl: "https://www.youtube.com/embed/VX1cdCLm5lo",
       trailerExternalUrl: "https://www.youtube.com/watch?v=VX1cdCLm5lo",
       news: null,
-      primaryCta: "Learn morWishlist on Steame",
+      primaryCta: "Wishlist on Steame",
       secondaryCta: null,
       storeUrl: "https://store.steampowered.com/app/3750480/Factory_Reset/",
       appId: "3750480",
