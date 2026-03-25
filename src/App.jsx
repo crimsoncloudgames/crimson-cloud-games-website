@@ -22,6 +22,11 @@ import rodShot2 from "./assets/rod-shot-2.png";
 import rodShot3 from "./assets/rod-shot-3.png";
 import rodShot4 from "./assets/rod-shot-4.png";
 import rodCardBg from "./assets/rod-card-bg.png";
+import factoryCardBg from "./assets/factory-card-bg.png";
+import factoryShot1 from "./assets/factory-shot-1.png";
+import factoryShot2 from "./assets/factory-shot-2.png";
+import factoryShot3 from "./assets/factory-shot-3.png";
+import factoryShot4 from "./assets/factory-shot-4.png";
 function SteamStoreWidget({ appId, titleFallback, url }) {
   if (!appId) {
     return (
@@ -70,7 +75,7 @@ export default function CrimsonCloudGamesWebsite() {
       trailerUrl: "https://www.youtube.com/embed/bROWmDqrhiM",
       trailerExternalUrl: "https://www.youtube.com/watch?v=bROWmDqrhiM",
       primaryCta: "Wishlist on Steam",
-      secondaryCta: "Press kit",
+      secondaryCta: null,
       storeUrl:
         "https://store.steampowered.com/app/3843760/Ashes_of_the_Damned_The_Forgotten_Ward/",
       appId: "3843760",
@@ -101,7 +106,7 @@ export default function CrimsonCloudGamesWebsite() {
       trailerExternalUrl: "https://youtu.be/COLwWiGBrR8",
       news: "Latest news: Prototype testing is underway across multiple platforms to validate the concept and gather feedback.",
       primaryCta: "Wishlist on Steam",
-      secondaryCta: "Press kit",
+      secondaryCta: null,
       storeUrl: "https://store.steampowered.com/app/4165240/I_AM_COFFEEE/",
       appId: "4165240",
       storeBlurb:
@@ -141,26 +146,26 @@ export default function CrimsonCloudGamesWebsite() {
     },
     {
       title: "Factory Reset",
-      year: "Earlier project",
-      genre: "Game project",
+      year: "Earlier projectIn development",
+      genre: "Game project2.5D precision platformer",
       description:
-        "An earlier Crimson Cloud Games project that helped shape the studio path and belongs in the lineup alongside the rest of the catalog.",
+        "Stop moving, and you explode. A 2.5D precision platformer where momentum means survival inside a decaying factory ruled by a sarcastic AI.",
       trailerLabel: "Factory Reset trailer",
-      trailerUrl: null,
-      trailerExternalUrl: null,
-      news: "Latest note: Add the correct description, trailer, and links here once you are ready to lock in the final details.",
-      primaryCta: "Learn more",
-      secondaryCta: "Press kit",
-      storeUrl: "#",
-      appId: null,
-      storeBlurb: "An earlier project from the studio catalog.",
-      screenshots: [
-        { label: "Screenshot 1", src: null },
-        { label: "Screenshot 2", src: null },
-        { label: "Screenshot 3", src: null },
+      trailerUrl: "https://www.youtube.com/embed/VX1cdCLm5lo",
+      trailerExternalUrl: "https://www.youtube.com/watch?v=VX1cdCLm5lo",
+      news: null,
+      primaryCta: "Learn morWishlist on Steame",
+      secondaryCta: null,
+      storeUrl: "https://store.steampowered.com/app/3750480/Factory_Reset/",
+      appId: "3750480",
+      storeBlurb: "A 2.5D precision platformer where stopping means exploding and momentum is the only way to survive.",
+      screenshots: [{ label: "Boss fight", src: factoryShot1 },
+        { label: "Precision platforming", src: factoryShot2 },
+        { label: "Factory traversal", src: factoryShot3 },
+        { label: "Momentum platforming", src: factoryShot4 },
       ],
-      backgroundImage: null,
-      widgetTitle: "Store widget",
+      backgroundImage: factoryCardBg,
+      widgetTitle: "Wishlist on Steam",
     },
   ];
 
