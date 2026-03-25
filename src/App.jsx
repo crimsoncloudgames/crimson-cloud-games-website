@@ -308,8 +308,8 @@ export default function CrimsonCloudGamesWebsite() {
                       <div className="mt-2 text-lg font-semibold">Current and upcoming games</div>
                     </div>
                     <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                      <div className="text-sm text-white/50">Newsletter</div>
-                      <div className="mt-2 text-lg font-semibold">Follow major updates</div>
+                      <div className="text-sm text-white/50">Updates</div>
+                      <div className="mt-2 text-lg font-semibold">Major updates and announcement</div>
                     </div>
                     <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
                       <div className="text-sm text-white/50">Socials</div>
