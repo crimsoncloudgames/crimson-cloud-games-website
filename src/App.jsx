@@ -259,9 +259,6 @@ export default function CrimsonCloudGamesWebsite() {
               <a href="#games" className="transition hover:text-white">
                 Games
               </a>
-              <a href="#newsletter" className="transition hover:text-white">
-                Newsletter
-              </a>
               <a href="#socials" className="transition hover:text-white">
                 Socials
               </a>
@@ -292,12 +289,6 @@ export default function CrimsonCloudGamesWebsite() {
                     className="rounded-2xl bg-gradient-to-r from-red-500 to-red-600 px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-red-950/50 transition hover:scale-[1.02]"
                   >
                     View games
-                  </a>
-                  <a
-                    href="#newsletter"
-                    className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-                  >
-                    Join the newsletter
                   </a>
                 </div>
               </div>
