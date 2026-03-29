@@ -55,7 +55,7 @@ function SteamStoreWidget({ appId, titleFallback, url }) {
         src={`https://store.steampowered.com/widget/${appId}/`}
         title={`${titleFallback} Steam widget`}
         width="100%"
-        height="232"
+        height="200"
         frameBorder="0"
         className="block w-full"
       />
@@ -174,40 +174,12 @@ export default function CrimsonCloudGamesWebsite() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterError, setNewsletterError] = useState("");
   const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
-
-  const openTrailer = (game) => {
-    setMediaModal({
-      type: "trailer",
-      title: game.title,
-      currentIndex: 0,
-      items: [
-        {
-          label: game.trailerLabel,
-          url: game.trailerUrl,
-          externalUrl: game.trailerExternalUrl,
-        },
-      ],
-    });
-  };
-
-  const openScreenshots = (game, startIndex = 0) => {
-    const validShots = game.screenshots.filter((shot) => shot.src);
-
-    if (!validShots.length) return;
-
-    const validIndex =
-      game.screenshots.slice(0, startIndex + 1).filter((shot) => shot.src).length - 1;
-
-    setMediaModal({
-      type: "screenshots",
-      title: game.title,
-      currentIndex: Math.max(0, validIndex),
-      items: validShots.map((shot, index) => ({
-        ...shot,
-        index,
-      })),
-    });
-  };
+  const [contactName, setContactName] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactSubject, setContactSubject] = useState("");
+  const [contactMessage, setContactMessage] = useState("");
+  const [contactError, setContactError] = useState("");
+  const [contactSubmitted, setContactSubmitted] = useState(false);
 
   const closeModal = () => setMediaModal(null);
 
@@ -231,6 +203,10 @@ export default function CrimsonCloudGamesWebsite() {
     if (!mediaModal) return null;
     return mediaModal.items[mediaModal.currentIndex];
   }, [mediaModal]);
+
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -256,16 +232,63 @@ export default function CrimsonCloudGamesWebsite() {
             </a>
 
             <nav className="hidden items-center gap-6 text-sm text-white/75 md:flex">
-  <a href="#games" className="transition hover:text-white">Games</a>
-  <a href="#newsletter" className="transition hover:text-white">Newsletter</a>
-  <a href="#socials" className="transition hover:text-white">Socials</a>
+  <a
+    href="#home"
+    onClick={(event) => {
+      event.preventDefault();
+      scrollToSection('home');
+    }}
+    className="transition hover:text-white"
+  >
+    Home
+  </a>
+  <a
+    href="#games"
+    onClick={(event) => {
+      event.preventDefault();
+      scrollToSection('games');
+    }}
+    className="transition hover:text-white"
+  >
+    Games
+  </a>
+  <a
+    href="#newsletter"
+    onClick={(event) => {
+      event.preventDefault();
+      scrollToSection('newsletter');
+    }}
+    className="transition hover:text-white"
+  >
+    Newsletter
+  </a>
+  <a
+    href="#contact"
+    onClick={(event) => {
+      event.preventDefault();
+      scrollToSection('contact');
+    }}
+    className="transition hover:text-white"
+  >
+    Contact
+  </a>
+  <a
+    href="#socials"
+    onClick={(event) => {
+      event.preventDefault();
+      scrollToSection('socials');
+    }}
+    className="transition hover:text-white"
+  >
+    Socials
+  </a>
 </nav>
           </div>
         </header>
 
         <main className="relative">
           <section id="home" className="border-b border-white/10">
-            <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 md:grid-cols-[1.2fr_0.8fr] md:items-center md:py-28">
+            <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 md:grid-cols-[0.9fr_1.1fr] md:items-center md:py-28">
               <div>
                 <div className="mb-5 inline-flex items-center rounded-full border border-red-500/25 bg-red-500/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-red-200">
                   • GAMES, UPDATES, AND LINKS •
@@ -283,12 +306,20 @@ export default function CrimsonCloudGamesWebsite() {
                 <div className="mt-8 flex gap-4">
                   <a
                     href="#games"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      scrollToSection('games');
+                    }}
                     className="rounded-2xl bg-gradient-to-r from-red-500 to-red-600 px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-red-950/50 transition hover:scale-105"
                   >
                     View games
                   </a>
                   <a
                     href="#newsletter"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      scrollToSection('newsletter');
+                    }}
                     className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                   >
                     Join newsletter
@@ -297,7 +328,7 @@ export default function CrimsonCloudGamesWebsite() {
               </div>
 
               <div className="grid gap-4">
-                <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/40">
+                <div className="rounded-[2rem] border border-red-500/20 bg-gradient-to-r from-red-600/10 via-white/[0.03] to-cyan-500/10 p-6 shadow-2xl shadow-black/40">
                   <div className="text-xs uppercase tracking-[0.2em] text-red-300/80">
                     What You'll Find on This Site
                   </div>
@@ -311,8 +342,8 @@ export default function CrimsonCloudGamesWebsite() {
                       <div className="mt-2 text-lg font-semibold">Stay updated with my current projects and progress.</div>
                     </div>
                     <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                      <div className="text-sm text-white/50">Blog</div>
-                      <div className="mt-2 text-lg font-semibold">Read reflections on game dev and guest posts from other devs.</div>
+                      <div className="text-sm text-white/50">Announcements</div>
+                      <div className="mt-2 text-lg font-semibold">Find release updates, studio announcements, and project news.</div>
                     </div>
                     <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
                       <div className="text-sm text-white/50">Socials</div>
@@ -363,7 +394,7 @@ export default function CrimsonCloudGamesWebsite() {
                   )}
 
                   <div className="relative z-10 grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
-                    <div className="relative overflow-hidden p-8 md:p-10">
+                    <div className="relative overflow-hidden p-6 md:p-8">
                       <div className="relative z-10 flex flex-wrap items-center gap-3 text-sm text-white/55">
                         <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
                           {game.year}
@@ -376,12 +407,8 @@ export default function CrimsonCloudGamesWebsite() {
                         {game.title}
                       </h3>
 
-                      <p className="relative z-10 mt-4 max-w-2xl text-base leading-7 text-white/72">
-                        {game.description}
-                      </p>
-
                       <div className="relative z-10 mt-8 space-y-4">
-                        <div className="rounded-3xl border border-white/10 bg-black/10 p-5 shadow-lg shadow-black/10 backdrop-blur-sm">
+                        <div className="rounded-3xl border border-white/10 bg-black/10 p-4 shadow-lg shadow-black/10 backdrop-blur-sm">
                           <div className="mb-3 flex items-center justify-between gap-4">
                             <div className="text-sm font-medium text-white/55">{game.widgetTitle}</div>
                             <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-white/55">
@@ -423,7 +450,7 @@ export default function CrimsonCloudGamesWebsite() {
                       </div>
                     </div>
 
-                    <div className="border-l-0 border-white/10 bg-transparent p-8 md:p-10 lg:border-l">
+                    <div className="border-l-0 border-white/10 bg-transparent p-6 md:p-8 lg:border-l">
                       <div className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-red-300/80">
                         Trailer
                       </div>
@@ -437,43 +464,10 @@ export default function CrimsonCloudGamesWebsite() {
                         allowFullScreen
                       />
 
-                      <div className="mt-6">
-                        <div className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-white/55">
-                          Screenshots
-                        </div>
+                      <p className="mt-6 max-w-2xl text-base leading-7 text-white/72">
+                        {game.description}
+                      </p>
 
-                        <div className="grid grid-cols-3 gap-3">
-                          {game.screenshots.map((shot, shotIndex) =>
-                            shot.src ? (
-                              <button
-                                type="button"
-                                key={`${game.title}-${shotIndex}`}
-                                onClick={() => openScreenshots(game, shotIndex)}
-                                className="group relative flex aspect-[4/3] overflow-hidden rounded-2xl border border-dashed border-white/15 bg-black/10 p-0 text-left text-xs text-white/40 transition hover:scale-[1.02] hover:border-red-400/50 hover:text-white/75"
-                              >
-                                <img
-                                  src={shot.src}
-                                  alt={shot.label}
-                                  className="absolute inset-0 h-full w-full object-cover"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/20" />
-                                <div className="relative z-10 mt-auto p-3 text-white/85">{shot.label}</div>
-                              </button>
-                            ) : (
-                              <div
-                                key={`${game.title}-${shotIndex}`}
-                                className="relative flex aspect-[4/3] overflow-hidden rounded-2xl border border-dashed border-white/15 bg-black/10 p-0 text-left text-xs text-white/40"
-                              >
-                                <div className="mt-auto p-3">{shot.label}</div>
-                              </div>
-                            )
-                          )}
-                        </div>
-
-                        <p className="mt-3 text-xs leading-5 text-white/40">
-                          Click any screenshot to open it larger and move left or right through the gallery.
-                        </p>
-                      </div>
                     </div>
                   </div>
                 </article>
@@ -587,8 +581,119 @@ export default function CrimsonCloudGamesWebsite() {
             </div>
           </section>
 
+          <section id="contact" className="mx-auto max-w-7xl px-6 py-20">
+            <div className="rounded-[2rem] border border-red-500/20 bg-gradient-to-r from-red-600/10 via-white/[0.03] to-cyan-500/10 p-8 md:p-12">
+              <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+                <div>
+                  <div className="text-sm font-medium uppercase tracking-[0.18em] text-red-300/80">
+                    Contact
+                  </div>
+                  <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">
+                    Send us a message
+                  </h2>
+                  <p className="mt-5 max-w-2xl text-base leading-7 text-white/72">
+                    Use this form to contact Crimson Cloud Games and we will reply to you at<br />contact@crimsoncloudgames.com.
+                  </p>
+                </div>
+
+                <div className="rounded-[1.75rem] border border-white/10 bg-black/20 p-3 max-h-[24rem] overflow-hidden flex flex-col">
+                  <div className="space-y-3 h-full min-h-0 flex flex-col overflow-hidden">
+                    <form
+                      action="https://formsubmit.co/contact@crimsoncloudgames.com"
+                      method="POST"
+                      target="contactTarget"
+                      onSubmit={(event) => {
+                        const email = contactEmail.trim();
+                        const message = contactMessage.trim();
+                        const subject = contactSubject.trim();
+                        const name = contactName.trim();
+                        const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+                        if (!name || !email || !subject || !message || !emailIsValid) {
+                          event.preventDefault();
+                          setContactError("Please fill in all fields and use a valid email address.");
+                          return;
+                        }
+
+                        setContactError("");
+                        setContactSubmitted(true);
+                      }}
+                      className="rounded-[1.75rem] border border-white/10 bg-black/20 p-4 flex-1 min-h-0 overflow-hidden flex flex-col"
+                    >
+                      <input type="hidden" name="_subject" value="New contact form submission from Crimson Cloud Games" />
+                      <input type="hidden" name="_captcha" value="false" />
+                      <input type="hidden" name="_template" value="table" />
+                      <div className="space-y-3 overflow-y-auto flex-1 min-h-0 pr-2">
+                        <input
+                          id="contact-name"
+                          type="text"
+                          name="name"
+                          value={contactName}
+                          onChange={(event) => setContactName(event.target.value)}
+                          placeholder="Your name"
+                          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white outline-none placeholder:text-white/35"
+                        />
+                        <input
+                          id="contact-email"
+                          type="email"
+                          name="email"
+                          value={contactEmail}
+                          onChange={(event) => setContactEmail(event.target.value)}
+                          placeholder="Email address"
+                          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white outline-none placeholder:text-white/35"
+                        />
+                        <input
+                          id="contact-subject"
+                          type="text"
+                          name="subject"
+                          value={contactSubject}
+                          onChange={(event) => setContactSubject(event.target.value)}
+                          placeholder="Subject"
+                          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white outline-none placeholder:text-white/35"
+                        />
+                        <textarea
+                          id="contact-message"
+                          name="message"
+                          value={contactMessage}
+                          onChange={(event) => setContactMessage(event.target.value)}
+                          placeholder="Message"
+                          rows="3"
+                          className="w-full h-24 rounded-2xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white outline-none placeholder:text-white/35"
+                        />
+
+                        {contactError ? (
+                          <p className="text-sm text-red-300">{contactError}</p>
+                        ) : null}
+
+                        <button
+                          type="submit"
+                          className="w-full rounded-2xl bg-gradient-to-r from-red-500 to-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-red-950/40 transition hover:scale-[1.01]"
+                        >
+                          Send message
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                {contactSubmitted ? (
+                  <div className="mt-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-emerald-100">
+                    Your message has been sent. We will contact you at the email address you provided.
+                  </div>
+                ) : null}
+
+                <iframe
+                  name="contactTarget"
+                  title="contact form submission result"
+                  style={{ display: "none" }}
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+          </section>
+
           <section id="socials" className="mx-auto max-w-7xl px-6 pb-20">
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 md:p-10">
+            <div className="rounded-[2rem] border border-red-500/20 bg-gradient-to-r from-red-600/10 via-white/[0.03] to-cyan-500/10 p-8 md:p-10">
               <div className="text-sm font-medium uppercase tracking-[0.18em] text-red-300/80">
                 Socials
               </div>
