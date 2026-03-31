@@ -29,6 +29,8 @@ import factoryShot3 from "./assets/factory-shot-3.webp";
 import factoryShot4 from "./assets/factory-shot-4.webp";
 
 function SteamStoreWidget({ appId, titleFallback, url }) {
+  const [widgetLoaded, setWidgetLoaded] = useState(false);
+
   if (!appId) {
     return (
       <a
@@ -47,6 +49,33 @@ function SteamStoreWidget({ appId, titleFallback, url }) {
           </div>
         </div>
       </a>
+    );
+  }
+
+  if (!widgetLoaded) {
+    return (
+      <div className="rounded-[1.4rem] border border-white/10 bg-[#1b2838] p-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="text-sm text-white/70">Load Steam widget content</div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setWidgetLoaded(true)}
+              className="rounded-xl bg-white px-3 py-2 text-xs font-semibold text-black transition hover:opacity-90"
+            >
+              Load widget
+            </button>
+            <a
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl border border-white/20 bg-white/5 px-3 py-2 text-xs font-semibold text-white transition hover:bg-white/10"
+            >
+              Open on Steam
+            </a>
+          </div>
+        </div>
+      </div>
     );
   }
 
