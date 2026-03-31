@@ -69,6 +69,8 @@ export default function CrimsonCloudGamesWebsite() {
       title: "Ashes of the Damned: The Forgotten Ward",
       year: "In development",
       genre: "Psychological horror",
+      publisherName: "indie.io",
+      publisherUrl: "https://www.indie.io/",
       description:
         "A dark psychological horror experience set inside The Ashford Institute for the Mentally Afflicted, where every step pulls you deeper into dread.",
       trailerLabel: "Watch trailer",
@@ -406,6 +408,27 @@ export default function CrimsonCloudGamesWebsite() {
                       <h3 className="relative z-10 mt-5 text-3xl font-black tracking-tight md:text-4xl">
                         {game.title}
                       </h3>
+
+                      {game.publisherName && game.publisherUrl ? (
+                        <p className="relative z-10 mt-2 text-sm text-white/70">
+                          Published by{" "}
+                          <a
+                            href={game.publisherUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="font-semibold underline decoration-white/30 underline-offset-2 transition hover:brightness-110"
+                          >
+                            {game.publisherName === "indie.io" ? (
+                              <span aria-label="indie.io">
+                                <span className="text-[#3d3b8f]">indie</span>
+                                <span className="text-[#e23a46]">.io</span>
+                              </span>
+                            ) : (
+                              game.publisherName
+                            )}
+                          </a>
+                        </p>
+                      ) : null}
 
                       <div className="relative z-10 mt-8 space-y-4">
                         <div className="rounded-3xl border border-white/10 bg-black/10 p-4 shadow-lg shadow-black/10 backdrop-blur-sm">
