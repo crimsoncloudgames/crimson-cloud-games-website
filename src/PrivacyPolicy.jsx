@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { setSeoMeta } from "./seo";
 
 const privacyPolicyHTML = `
 <style>
@@ -153,6 +155,15 @@ word-break: break-word !important;
 `;
 
 export default function PrivacyPolicy() {
+  useEffect(() => {
+    setSeoMeta({
+      title: "Privacy Policy | Crimson Cloud Games",
+      description:
+        "Read the Crimson Cloud Games Privacy Policy, including how personal data is collected, used, and protected.",
+      path: "/privacy-policy",
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#07090d] text-white">
       <div className="mx-auto max-w-7xl px-6 py-10">

@@ -1,31 +1,32 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { setSeoMeta } from "./seo";
 import logo from './assets/company-logo.webp';
-import ashesShot1 from "./assets/ashes-shot-1.png";
-import ashesShot2 from "./assets/ashes-shot-2.png";
-import ashesShot3 from "./assets/ashes-shot-3.png";
+import ashesShot1 from "./assets/ashes-shot-1.webp";
+import ashesShot2 from "./assets/ashes-shot-2.webp";
+import ashesShot3 from "./assets/ashes-shot-3.webp";
 import ashesCardBg from "./assets/ashes-card-bg.webp";
-import ashesShot4 from "./assets/ashes-shot-4.png";
-import ashesShot5 from "./assets/ashes-shot-5.png";
-import ashesShot6 from "./assets/ashes-shot-6.png";
-import ashesShot7 from "./assets/ashes-shot-7.png";
-import ashesShot8 from "./assets/ashes-shot-8.png";
-import ashesShot9 from "./assets/ashes-shot-9.png";
-import iacShot1 from "./assets/iac-shot-1.png";
-import iacShot2 from "./assets/iac-shot-2.png";
-import iacShot3 from "./assets/iac-shot-3.png";
-import iacShot4 from "./assets/iac-shot-4.png";
+import ashesShot4 from "./assets/ashes-shot-4.webp";
+import ashesShot5 from "./assets/ashes-shot-5.webp";
+import ashesShot6 from "./assets/ashes-shot-6.webp";
+import ashesShot7 from "./assets/ashes-shot-7.webp";
+import ashesShot8 from "./assets/ashes-shot-8.webp";
+import ashesShot9 from "./assets/ashes-shot-9.webp";
+import iacShot1 from "./assets/iac-shot-1.webp";
+import iacShot2 from "./assets/iac-shot-2.webp";
+import iacShot3 from "./assets/iac-shot-3.webp";
+import iacShot4 from "./assets/iac-shot-4.webp";
 import iacCardBg from "./assets/iac-card-bg.webp";
-import rodShot1 from "./assets/rod-shot-1.png";
-import rodShot2 from "./assets/rod-shot-2.png";
-import rodShot3 from "./assets/rod-shot-3.png";
-import rodShot4 from "./assets/rod-shot-4.png";
+import rodShot1 from "./assets/rod-shot-1.webp";
+import rodShot2 from "./assets/rod-shot-2.webp";
+import rodShot3 from "./assets/rod-shot-3.webp";
+import rodShot4 from "./assets/rod-shot-4.webp";
 import rodCardBg from "./assets/rod-card-bg.webp";
 import factoryCardBg from "./assets/factory-card-bg.webp";
-import factoryShot1 from "./assets/factory-shot-1.png";
-import factoryShot2 from "./assets/factory-shot-2.png";
-import factoryShot3 from "./assets/factory-shot-3.png";
-import factoryShot4 from "./assets/factory-shot-4.png";
+import factoryShot1 from "./assets/factory-shot-1.webp";
+import factoryShot2 from "./assets/factory-shot-2.webp";
+import factoryShot3 from "./assets/factory-shot-3.webp";
+import factoryShot4 from "./assets/factory-shot-4.webp";
 
 function SteamStoreWidget({ appId, titleFallback, url }) {
   if (!appId) {
@@ -64,6 +65,15 @@ function SteamStoreWidget({ appId, titleFallback, url }) {
 }
 
 export default function CrimsonCloudGamesWebsite() {
+  useEffect(() => {
+    setSeoMeta({
+      title: "Crimson Cloud Games",
+      description:
+        "Discover Crimson Cloud Games titles, watch trailers, wishlist on Steam, and get the latest studio updates.",
+      path: "/",
+    });
+  }, []);
+
   const games = [
     {
       title: "Ashes of the Damned: The Forgotten Ward",
@@ -619,8 +629,8 @@ export default function CrimsonCloudGamesWebsite() {
                   </p>
                 </div>
 
-                <div className="rounded-[1.75rem] border border-white/10 bg-black/20 p-3 max-h-[24rem] overflow-hidden flex flex-col">
-                  <div className="space-y-3 h-full min-h-0 flex flex-col overflow-hidden">
+                <div className="rounded-[1.75rem] border border-white/10 bg-black/20 p-3 flex flex-col">
+                  <div className="space-y-3 flex flex-col">
                     <form
                       action="https://formsubmit.co/contact@crimsoncloudgames.com"
                       method="POST"
@@ -641,12 +651,12 @@ export default function CrimsonCloudGamesWebsite() {
                         setContactError("");
                         setContactSubmitted(true);
                       }}
-                      className="rounded-[1.75rem] border border-white/10 bg-black/20 p-4 flex-1 min-h-0 overflow-hidden flex flex-col"
+                      className="rounded-[1.75rem] border border-white/10 bg-black/20 p-4 flex flex-col"
                     >
                       <input type="hidden" name="_subject" value="New contact form submission from Crimson Cloud Games" />
                       <input type="hidden" name="_captcha" value="false" />
                       <input type="hidden" name="_template" value="table" />
-                      <div className="space-y-3 overflow-y-auto flex-1 min-h-0 pr-2">
+                      <div className="space-y-3 pr-1 md:pr-2">
                         <input
                           id="contact-name"
                           type="text"

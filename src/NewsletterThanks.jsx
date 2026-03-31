@@ -1,6 +1,17 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { setSeoMeta } from "./seo";
 
 export default function NewsletterThanks() {
+  useEffect(() => {
+    setSeoMeta({
+      title: "Thanks for Subscribing | Crimson Cloud Games",
+      description:
+        "Subscription confirmed for Crimson Cloud Games updates. Return to the homepage or review the privacy policy.",
+      path: "/newsletter-thanks",
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#07090d] text-white">
       <div className="mx-auto max-w-7xl px-6 py-20">
