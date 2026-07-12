@@ -6,6 +6,8 @@ import ashesShot1 from "./assets/ashes-shot-1.webp";
 import ashesShot2 from "./assets/ashes-shot-2.webp";
 import ashesShot3 from "./assets/ashes-shot-3.webp";
 import ashesCardBg from "./assets/ashes-card-bg.webp";
+import utfdBackground from "./assets/utfd-background.png";
+import utfdHeaderCapsule from "./assets/utfd-header-capsule.png";
 import ashesShot4 from "./assets/ashes-shot-4.webp";
 import ashesShot5 from "./assets/ashes-shot-5.webp";
 import ashesShot6 from "./assets/ashes-shot-6.webp";
@@ -29,8 +31,6 @@ import factoryShot3 from "./assets/factory-shot-3.webp";
 import factoryShot4 from "./assets/factory-shot-4.webp";
 
 function SteamStoreWidget({ appId, titleFallback, url }) {
-  const [widgetLoaded, setWidgetLoaded] = useState(false);
-
   if (!appId) {
     return (
       <a
@@ -49,33 +49,6 @@ function SteamStoreWidget({ appId, titleFallback, url }) {
           </div>
         </div>
       </a>
-    );
-  }
-
-  if (!widgetLoaded) {
-    return (
-      <div className="rounded-[1.4rem] border border-white/10 bg-[#1b2838] p-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="text-sm text-white/70">Load Steam widget content</div>
-          <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={() => setWidgetLoaded(true)}
-              className="rounded-xl bg-white px-3 py-2 text-xs font-semibold text-black transition hover:opacity-90"
-            >
-              Load widget
-            </button>
-            <a
-              href={url}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-xl border border-white/20 bg-white/5 px-3 py-2 text-xs font-semibold text-white transition hover:bg-white/10"
-            >
-              Open on Steam
-            </a>
-          </div>
-        </div>
-      </div>
     );
   }
 
@@ -104,6 +77,26 @@ export default function CrimsonCloudGamesWebsite() {
   }, []);
 
   const games = [
+    {
+      title: "Until the Fire Dies",
+      year: "In development",
+      genre: "Survival horror",
+      description:
+        "A first-person survival horror game where you chop trees and split logs by day, then keep the fire alive through the night as horrors close in beyond its light.",
+      primaryCta: "Wishlist on Steam",
+      secondaryCta: null,
+      storeUrl:
+        "https://store.steampowered.com/app/4863690/Until_the_Fire_Dies/",
+      appId: "4863690",
+      storeBlurb:
+        "A first-person survival horror game where you chop trees and split logs by day, then keep the fire alive through the night as horrors close in beyond its light.",
+      backgroundImage: utfdBackground,
+      widgetTitle: "Wishlist on Steam",
+      mediaType: "image",
+      mediaImage: utfdHeaderCapsule,
+      mediaImageLink: "https://store.steampowered.com/app/4863690/Until_the_Fire_Dies/",
+      mediaImageAlt: "Until the Fire Dies Steam capsule",
+    },
     {
       title: "Ashes of the Damned: The Forgotten Ward",
       year: "In development",
@@ -448,27 +441,6 @@ export default function CrimsonCloudGamesWebsite() {
                         {game.title}
                       </h3>
 
-                      {game.publisherName && game.publisherUrl ? (
-                        <p className="relative z-10 mt-2 text-sm text-white/70">
-                          Published by{" "}
-                          <a
-                            href={game.publisherUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="font-semibold underline decoration-white/30 underline-offset-2 transition hover:brightness-110"
-                          >
-                            {game.publisherName === "indie.io" ? (
-                              <span aria-label="indie.io">
-                                <span className="text-[#3d3b8f]">indie</span>
-                                <span className="text-[#e23a46]">.io</span>
-                              </span>
-                            ) : (
-                              game.publisherName
-                            )}
-                          </a>
-                        </p>
-                      ) : null}
-
                       <div className="relative z-10 mt-8 space-y-4">
                         <div className="rounded-3xl border border-white/10 bg-black/10 p-4 shadow-lg shadow-black/10 backdrop-blur-sm">
                           <div className="mb-3 flex items-center justify-between gap-4">
@@ -513,18 +485,43 @@ export default function CrimsonCloudGamesWebsite() {
                     </div>
 
                     <div className="border-l-0 border-white/10 bg-transparent p-6 md:p-8 lg:border-l">
-                      <div className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-red-300/80">
-                        Trailer
-                      </div>
+                      {game.mediaType === "image" ? (
+                        <div className="flex justify-center">
+                          <a
+                            href={game.mediaImageLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex"
+                          >
+                            <img
+                              src={game.mediaImage}
+                              alt={game.mediaImageAlt || `${game.title} media`}
+                              className="max-w-full rounded-[1.75rem] border border-dashed border-white/15 bg-black/10 object-contain"
+                            />
+                          </a>
+                        </div>
+                      ) : (
+                        <>
+                          {game.mediaHeading ? (
+                            <div className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-red-300/80">
+                              {game.mediaHeading}
+                            </div>
+                          ) : null}
 
-                      <iframe
-                        src={game.trailerUrl}
-                        title={`${game.title} trailer`}
-                        className="aspect-video w-full overflow-hidden rounded-[1.75rem] border border-dashed border-white/15 bg-black/10"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen
-                      />
+                          <div className={`overflow-hidden rounded-[1.75rem] border border-dashed border-white/15 bg-black/10 ${game.mediaContainerClassName || ""}`}>
+                            <iframe
+                              src={game.trailerUrl}
+                              title={game.mediaTitle || `${game.title} trailer`}
+                              id={`game-media-${index}`}
+                              aria-label={game.mediaTitle || `${game.title} trailer`}
+                              className={`w-full ${game.mediaFrameClassName || "aspect-video"}`}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                            />
+                          </div>
+                        </>
+                      )}
 
                       <p className="mt-6 max-w-2xl text-base leading-7 text-white/72">
                         {game.description}
