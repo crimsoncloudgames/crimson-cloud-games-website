@@ -1,5 +1,5 @@
 const SITE_NAME = "Crimson Cloud Games";
-const BASE_URL = "https://crimsoncloudgames.com";
+const BASE_URL = "https://www.crimsoncloudgames.com";
 const DEFAULT_IMAGE_PATH = "/social-preview.webp";
 
 function setOrCreateMeta(attrName, key, content) {

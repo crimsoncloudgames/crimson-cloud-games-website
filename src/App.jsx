@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { setSeoMeta } from "./seo";
-import logo from './assets/company-logo.webp';
+import SiteHeader from "./components/SiteHeader";
+import SiteFooter from "./components/SiteFooter";
 import ashesShot1 from "./assets/ashes-shot-1.webp";
 import ashesShot2 from "./assets/ashes-shot-2.webp";
 import ashesShot3 from "./assets/ashes-shot-3.webp";
@@ -85,6 +86,9 @@ export default function CrimsonCloudGamesWebsite() {
         "A first-person survival horror game where you chop trees and split logs by day, then keep the fire alive through the night as horrors close in beyond its light.",
       primaryCta: "Wishlist on Steam",
       secondaryCta: null,
+      detailCta: "See more",
+      detailUrl: "/until-the-fire-dies/",
+      titleLink: "/until-the-fire-dies/",
       storeUrl:
         "https://store.steampowered.com/app/4863690/Until_the_Fire_Dies/",
       appId: "4863690",
@@ -251,74 +255,7 @@ export default function CrimsonCloudGamesWebsite() {
           <div className="absolute bottom-[-10rem] left-[20%] h-[24rem] w-[24rem] rounded-full bg-red-500/10 blur-3xl" />
         </div>
 
-        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#07090d]/80 backdrop-blur-xl">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-            <a href="#home" className="flex items-center gap-3">
-              <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border border-red-500/30 bg-white/5 shadow-lg shadow-red-950/40">
-                <img src={logo} alt="Crimson Cloud Games logo" className="h-full w-full object-contain" />
-              </div>
-              <div>
-                <div className="text-sm font-semibold tracking-[0.18em] text-white/90">
-                  CRIMSON CLOUD GAMES
-                </div>
-                <div className="text-xs text-white/50">Original games across genres</div>
-              </div>
-            </a>
-
-            <nav className="hidden items-center gap-6 text-sm text-white/75 md:flex">
-  <a
-    href="#home"
-    onClick={(event) => {
-      event.preventDefault();
-      scrollToSection('home');
-    }}
-    className="transition hover:text-white"
-  >
-    Home
-  </a>
-  <a
-    href="#games"
-    onClick={(event) => {
-      event.preventDefault();
-      scrollToSection('games');
-    }}
-    className="transition hover:text-white"
-  >
-    Games
-  </a>
-  <a
-    href="#newsletter"
-    onClick={(event) => {
-      event.preventDefault();
-      scrollToSection('newsletter');
-    }}
-    className="transition hover:text-white"
-  >
-    Newsletter
-  </a>
-  <a
-    href="#contact"
-    onClick={(event) => {
-      event.preventDefault();
-      scrollToSection('contact');
-    }}
-    className="transition hover:text-white"
-  >
-    Contact
-  </a>
-  <a
-    href="#socials"
-    onClick={(event) => {
-      event.preventDefault();
-      scrollToSection('socials');
-    }}
-    className="transition hover:text-white"
-  >
-    Socials
-  </a>
-</nav>
-          </div>
-        </header>
+        <SiteHeader />
 
         <main className="relative">
           <section id="home" className="border-b border-white/10">
@@ -437,9 +374,18 @@ export default function CrimsonCloudGamesWebsite() {
                         <span>#{index + 1}</span>
                       </div>
 
-                      <h3 className="relative z-10 mt-5 text-3xl font-black tracking-tight md:text-4xl">
-                        {game.title}
-                      </h3>
+                      {game.titleLink ? (
+                        <Link
+                          to={game.titleLink}
+                          className="relative z-10 mt-5 block text-3xl font-black tracking-tight text-white transition hover:text-red-200 md:text-4xl"
+                        >
+                          {game.title}
+                        </Link>
+                      ) : (
+                        <h3 className="relative z-10 mt-5 text-3xl font-black tracking-tight md:text-4xl">
+                          {game.title}
+                        </h3>
+                      )}
 
                       <div className="relative z-10 mt-8 space-y-4">
                         <div className="rounded-3xl border border-white/10 bg-black/10 p-4 shadow-lg shadow-black/10 backdrop-blur-sm">
@@ -480,6 +426,15 @@ export default function CrimsonCloudGamesWebsite() {
                           >
                             {game.secondaryCta}
                           </a>
+                        )}
+
+                        {game.detailUrl && game.detailCta && (
+                          <Link
+                            to={game.detailUrl}
+                            className="rounded-2xl border border-red-500/25 bg-red-500/10 px-5 py-3 text-sm font-semibold text-red-100 transition hover:scale-[1.02] hover:bg-red-500/20"
+                          >
+                            {game.detailCta}
+                          </Link>
                         )}
                       </div>
                     </div>
@@ -822,14 +777,7 @@ export default function CrimsonCloudGamesWebsite() {
           </section>
         </main>
         
-        <footer className="border-t border-white/10 bg-[#07090d]/80 py-6">
-          <div className="mx-auto max-w-7xl px-6 text-center text-sm text-white/70 space-y-2">
-            <Link to="/privacy-policy" className="block underline transition hover:text-white">
-              Privacy Policy
-            </Link>
-            <p>&copy; 2026 Crimson Cloud Games. All rights reserved.</p>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
 
       {mediaModal && (
