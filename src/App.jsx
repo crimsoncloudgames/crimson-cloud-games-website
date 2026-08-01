@@ -3,18 +3,9 @@ import { Link } from "react-router-dom";
 import { setSeoMeta } from "./seo";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
-import ashesShot1 from "./assets/ashes-shot-1.webp";
-import ashesShot2 from "./assets/ashes-shot-2.webp";
-import ashesShot3 from "./assets/ashes-shot-3.webp";
 import ashesCardBg from "./assets/ashes-card-bg.webp";
 import utfdBackground from "./assets/utfd-background.png";
 import utfdHeaderCapsule from "./assets/utfd-header-capsule.png";
-import ashesShot4 from "./assets/ashes-shot-4.webp";
-import ashesShot5 from "./assets/ashes-shot-5.webp";
-import ashesShot6 from "./assets/ashes-shot-6.webp";
-import ashesShot7 from "./assets/ashes-shot-7.webp";
-import ashesShot8 from "./assets/ashes-shot-8.webp";
-import ashesShot9 from "./assets/ashes-shot-9.webp";
 import iacShot1 from "./assets/iac-shot-1.webp";
 import iacShot2 from "./assets/iac-shot-2.webp";
 import iacShot3 from "./assets/iac-shot-3.webp";
@@ -105,31 +96,21 @@ export default function CrimsonCloudGamesWebsite() {
       title: "Ashes of the Damned: The Forgotten Ward",
       year: "In development",
       genre: "Psychological horror",
-      publisherName: "indie.io",
-      publisherUrl: "https://www.indie.io/",
       description:
-        "A dark psychological horror experience set inside The Ashford Institute for the Mentally Afflicted, where every step pulls you deeper into dread.",
+        "Explore an abandoned psychiatric ward in this first-person psychological horror. Find patient files, solve puzzles, uncover your connection to the ward, and survive the entities stalking its halls. You cannot fight back.",
       trailerLabel: "Watch trailer",
       trailerUrl: "https://www.youtube.com/embed/bROWmDqrhiM",
       trailerExternalUrl: "https://www.youtube.com/watch?v=bROWmDqrhiM",
       primaryCta: "Wishlist on Steam",
-      secondaryCta: null,
+      secondaryCta: "Play Free Demo",
+      detailCta: "See more",
+      detailUrl: "/ashes-of-the-damned-the-forgotten-ward/",
+      titleLink: "/ashes-of-the-damned-the-forgotten-ward/",
       storeUrl:
         "https://store.steampowered.com/app/3843760/Ashes_of_the_Damned_The_Forgotten_Ward/",
       appId: "3843760",
       storeBlurb:
-        "Enter a decaying ward, face grotesque horrors, and fight to survive a psychological descent into dread.",
-      screenshots: [
-        { label: "Outside roof view", src: ashesShot1 },
-        { label: "Examination room", src: ashesShot2 },
-        { label: "Blood filled bathtub", src: ashesShot3 },
-        { label: "Asylum exterior in rain", src: ashesShot4 },
-        { label: "Blood stained examination table", src: ashesShot5 },
-        { label: "Blood soaked gurney", src: ashesShot6 },
-        { label: "Padded room", src: ashesShot7 },
-        { label: "Auditorium", src: ashesShot8 },
-        { label: "Attic storage room", src: ashesShot9 },
-      ],
+        "A first-person psychological horror where you explore an abandoned psychiatric ward, uncover its history, and survive without fighting back.",
       backgroundImage: ashesCardBg,
       widgetTitle: "Wishlist on Steam",
     },
