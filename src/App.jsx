@@ -98,9 +98,9 @@ export default function CrimsonCloudGamesWebsite() {
       genre: "Psychological horror",
       description:
         "Explore an abandoned psychiatric ward in this first-person psychological horror. Find patient files, solve puzzles, uncover your connection to the ward, and survive the entities stalking its halls. You cannot fight back.",
-      trailerLabel: "Watch trailer",
-      trailerUrl: "https://www.youtube.com/embed/bROWmDqrhiM",
-      trailerExternalUrl: "https://www.youtube.com/watch?v=bROWmDqrhiM",
+      trailerLabel: "Announcement Trailer",
+      trailerUrl: "https://www.youtube.com/embed/oYjcdFN6iN0",
+      trailerExternalUrl: "https://www.youtube.com/watch?v=oYjcdFN6iN0",
       primaryCta: "Wishlist on Steam",
       secondaryCta: "Play Free Demo",
       detailCta: "See more",

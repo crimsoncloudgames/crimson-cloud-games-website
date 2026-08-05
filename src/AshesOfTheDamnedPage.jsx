@@ -345,14 +345,14 @@ export default function AshesOfTheDamnedPage() {
                 Trailer
               </div>
               <h2 className="mt-3 text-3xl font-black tracking-tight md:text-4xl">
-                Watch the Trailer
+                Announcement Trailer
               </h2>
             </div>
 
             <div className="mx-auto mt-8 aspect-video w-full max-w-5xl overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/20">
               <iframe
-                src="https://www.youtube.com/embed/bROWmDqrhiM"
-                title="Ashes of the Damned trailer"
+                src="https://www.youtube.com/embed/oYjcdFN6iN0"
+                title="Ashes of the Damned announcement trailer"
                 className="h-full w-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
