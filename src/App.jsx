@@ -70,6 +70,28 @@ export default function CrimsonCloudGamesWebsite() {
 
   const games = [
     {
+      title: "Ashes of the Damned: The Forgotten Ward",
+      year: "In development",
+      genre: "Psychological horror",
+      description:
+        "Enter an abandoned psychiatric ward in this first-person psychological horror. Find patient files, solve puzzles, uncover your connection to the ward, and survive the entities stalking its halls. You cannot fight back.",
+      trailerLabel: "Announcement Trailer",
+      trailerUrl: "https://www.youtube.com/embed/oYjcdFN6iN0",
+      trailerExternalUrl: "https://www.youtube.com/watch?v=oYjcdFN6iN0",
+      primaryCta: "Wishlist on Steam",
+      secondaryCta: "Play Free Demo",
+      detailCta: "See more",
+      detailUrl: "/ashes-of-the-damned-the-forgotten-ward/",
+      titleLink: "/ashes-of-the-damned-the-forgotten-ward/",
+      storeUrl:
+        "https://store.steampowered.com/app/3843760/Ashes_of_the_Damned_The_Forgotten_Ward/",
+      appId: "3843760",
+      storeBlurb:
+        "A first-person psychological horror where you explore an abandoned psychiatric ward, uncover its history, and survive without fighting back.",
+      backgroundImage: ashesCardBg,
+      widgetTitle: "Wishlist on Steam",
+    },
+    {
       title: "Until the Fire Dies",
       year: "In development",
       genre: "Survival horror",
@@ -91,28 +113,6 @@ export default function CrimsonCloudGamesWebsite() {
       mediaImage: utfdHeaderCapsule,
       mediaImageLink: "https://store.steampowered.com/app/4863690/Until_the_Fire_Dies/",
       mediaImageAlt: "Until the Fire Dies Steam capsule",
-    },
-    {
-      title: "Ashes of the Damned: The Forgotten Ward",
-      year: "In development",
-      genre: "Psychological horror",
-      description:
-        "Explore an abandoned psychiatric ward in this first-person psychological horror. Find patient files, solve puzzles, uncover your connection to the ward, and survive the entities stalking its halls. You cannot fight back.",
-      trailerLabel: "Announcement Trailer",
-      trailerUrl: "https://www.youtube.com/embed/oYjcdFN6iN0",
-      trailerExternalUrl: "https://www.youtube.com/watch?v=oYjcdFN6iN0",
-      primaryCta: "Wishlist on Steam",
-      secondaryCta: "Play Free Demo",
-      detailCta: "See more",
-      detailUrl: "/ashes-of-the-damned-the-forgotten-ward/",
-      titleLink: "/ashes-of-the-damned-the-forgotten-ward/",
-      storeUrl:
-        "https://store.steampowered.com/app/3843760/Ashes_of_the_Damned_The_Forgotten_Ward/",
-      appId: "3843760",
-      storeBlurb:
-        "A first-person psychological horror where you explore an abandoned psychiatric ward, uncover its history, and survive without fighting back.",
-      backgroundImage: ashesCardBg,
-      widgetTitle: "Wishlist on Steam",
     },
     {
       title: "I AM COFFEEE!",
@@ -587,7 +587,7 @@ export default function CrimsonCloudGamesWebsite() {
                     Send us a message
                   </h2>
                   <p className="mt-5 max-w-2xl text-base leading-7 text-white/72">
-                    Use this form to contact Crimson Cloud Games and we will reply to you at<br />contact@crimsoncloudgames.com.
+                    Use this form to contact Crimson Cloud Games and we will reply to you at<br />contact@crimsoncloudgames.com
                   </p>
                 </div>
 

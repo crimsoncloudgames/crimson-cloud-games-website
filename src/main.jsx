@@ -9,9 +9,6 @@ import AshesOfTheDamnedPage from './AshesOfTheDamnedPage.jsx'
 import UntilTheFireDiesPage from './UntilTheFireDiesPage.jsx'
 import { Analytics } from '@vercel/analytics/react'
 
-const analyticsEnabled =
-  typeof window !== 'undefined' && window.location.hostname === 'crimsoncloudgames.com'
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -24,7 +21,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/until-the-fire-dies" element={<UntilTheFireDiesPage />} />
         <Route path="/until-the-fire-dies/" element={<UntilTheFireDiesPage />} />
       </Routes>
-      {analyticsEnabled ? <Analytics /> : null}
+      <Analytics />
     </BrowserRouter>
   </StrictMode>,
 )

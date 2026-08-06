@@ -306,7 +306,7 @@ export default function AshesOfTheDamnedPage() {
                 The ward remembers what you forgot.
               </p>
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/75 md:text-lg">
-                Explore an abandoned psychiatric ward in this first-person psychological horror. Find patient files, solve puzzles, uncover your connection to the ward, and survive the entities stalking its halls. You cannot fight back.
+                Enter an abandoned psychiatric ward in this first-person psychological horror. Find patient files, solve puzzles, uncover your connection to the ward, and survive the entities stalking its halls. You cannot fight back.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
@@ -518,7 +518,7 @@ export default function AshesOfTheDamnedPage() {
               </div>
               <div>
                 <div className="text-sm font-medium uppercase tracking-[0.18em] text-white/45">Release Window</div>
-                <div className="mt-2 text-base font-semibold text-white">2026</div>
+                <div className="mt-2 text-base font-semibold text-white">August 2026</div>
               </div>
               <div>
                 <div className="text-sm font-medium uppercase tracking-[0.18em] text-white/45">Demo</div>
