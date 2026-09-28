@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { setSeoMeta } from "./seo";
 import SiteHeader from "./components/SiteHeader";
@@ -198,6 +198,57 @@ export default function CrimsonCloudGamesWebsite() {
   const [contactMessage, setContactMessage] = useState("");
   const [contactError, setContactError] = useState("");
   const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [contactSending, setContactSending] = useState(false);
+  const contactInFlight = useRef(false);
+
+  const handleContactSubmit = async (event) => {
+    event.preventDefault();
+    if (contactInFlight.current) return;
+
+    setContactSubmitted(false);
+    setContactError("");
+    const formData = new FormData(event.currentTarget);
+    if (formData.get("_honey")) return;
+
+    const email = contactEmail.trim();
+    const message = contactMessage.trim();
+    const subject = contactSubject.trim();
+    const name = contactName.trim();
+    const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!name || !email || !subject || !message || !emailIsValid) {
+      setContactError("Please fill in all fields and use a valid email address.");
+      return;
+    }
+
+    contactInFlight.current = true;
+    setContactSending(true);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+    try {
+      // The regular endpoint renders a cross-origin page; only AJAX returns
+      // a readable result. Keep the recipient in the form action below.
+      const endpoint = new URL(event.currentTarget.action);
+      endpoint.pathname = `/ajax${endpoint.pathname}`;
+      const response = await fetch(endpoint.href, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...Object.fromEntries(formData), name, email, subject, message }),
+        signal: controller.signal,
+      });
+      if (!response.ok) throw new Error("FormSubmit request failed");
+      const result = await response.json();
+      if (result?.success !== true && result?.success !== "true") {
+        throw new Error("FormSubmit did not confirm acceptance");
+      }
+      setContactSubmitted(true);
+    } catch {
+      setContactError("We couldn't confirm your submission. Please try again or email contact@crimsoncloudgames.com. Your message is still in the form.");
+    } finally {
+      clearTimeout(timeout);
+      contactInFlight.current = false;
+      setContactSending(false);
+    }
+  };
 
   const closeModal = () => setMediaModal(null);
 
@@ -595,31 +646,18 @@ export default function CrimsonCloudGamesWebsite() {
                     <form
                       action="https://formsubmit.co/contact@crimsoncloudgames.com"
                       method="POST"
-                      target="contactTarget"
-                      onSubmit={(event) => {
-                        const email = contactEmail.trim();
-                        const message = contactMessage.trim();
-                        const subject = contactSubject.trim();
-                        const name = contactName.trim();
-                        const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-                        if (!name || !email || !subject || !message || !emailIsValid) {
-                          event.preventDefault();
-                          setContactError("Please fill in all fields and use a valid email address.");
-                          return;
-                        }
-
-                        setContactError("");
-                        setContactSubmitted(true);
-                      }}
+                      onSubmit={handleContactSubmit}
+                      onChange={() => setContactSubmitted(false)}
+                      aria-busy={contactSending}
                       className="rounded-[1.75rem] border border-white/10 bg-black/20 p-4 flex flex-col"
                     >
                       <input type="hidden" name="_subject" value="New contact form submission from Crimson Cloud Games" />
-                      <input type="hidden" name="_captcha" value="false" />
+                      <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
                       <input type="hidden" name="_template" value="table" />
                       <div className="space-y-3 pr-1 md:pr-2">
                         <input
                           id="contact-name"
+                          disabled={contactSending}
                           type="text"
                           name="name"
                           value={contactName}
@@ -629,6 +667,7 @@ export default function CrimsonCloudGamesWebsite() {
                         />
                         <input
                           id="contact-email"
+                          disabled={contactSending}
                           type="email"
                           name="email"
                           value={contactEmail}
@@ -638,6 +677,7 @@ export default function CrimsonCloudGamesWebsite() {
                         />
                         <input
                           id="contact-subject"
+                          disabled={contactSending}
                           type="text"
                           name="subject"
                           value={contactSubject}
@@ -647,6 +687,7 @@ export default function CrimsonCloudGamesWebsite() {
                         />
                         <textarea
                           id="contact-message"
+                          disabled={contactSending}
                           name="message"
                           value={contactMessage}
                           onChange={(event) => setContactMessage(event.target.value)}
@@ -656,14 +697,15 @@ export default function CrimsonCloudGamesWebsite() {
                         />
 
                         {contactError ? (
-                          <p className="text-sm text-red-300">{contactError}</p>
+                          <p role="alert" className="text-sm text-red-300">{contactError}</p>
                         ) : null}
 
                         <button
                           type="submit"
-                          className="w-full rounded-2xl bg-gradient-to-r from-red-500 to-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-red-950/40 transition hover:scale-[1.01]"
+                          disabled={contactSending}
+                          className="w-full rounded-2xl bg-gradient-to-r from-red-500 to-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-red-950/40 transition hover:scale-[1.01] disabled:cursor-wait disabled:opacity-60"
                         >
-                          Send message
+                          {contactSending ? "Sending..." : "Send message"}
                         </button>
                       </div>
                     </form>
@@ -671,17 +713,11 @@ export default function CrimsonCloudGamesWebsite() {
                 </div>
 
                 {contactSubmitted ? (
-                  <div className="mt-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-emerald-100">
-                    Your message has been sent. We will contact you at the email address you provided.
+                  <div role="status" className="mt-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-emerald-100">
+                    Your message has been accepted by our form service. Thank you for contacting us.
                   </div>
                 ) : null}
 
-                <iframe
-                  name="contactTarget"
-                  title="contact form submission result"
-                  style={{ display: "none" }}
-                  aria-hidden="true"
-                />
               </div>
             </div>
           </section>
