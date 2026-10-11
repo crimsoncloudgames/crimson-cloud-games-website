@@ -5,7 +5,7 @@ import logo from "../assets/company-logo.webp";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Games", href: "/#games" },
-  { label: "Newsletter", href: "/#newsletter" },
+  { label: "Mailing List", href: "/#newsletter" },
   { label: "Contact", href: "/#contact" },
   { label: "Socials", href: "/#socials" },
 ];

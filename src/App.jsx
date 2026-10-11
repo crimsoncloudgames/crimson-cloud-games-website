@@ -1,3 +1,4 @@
+import { funeral } from "./myFuneralIsSunday";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { setSeoMeta } from "./seo";
@@ -69,6 +70,18 @@ export default function CrimsonCloudGamesWebsite() {
   }, []);
 
   const games = [
+    {
+      ...funeral,
+      year: "Coming Soon",
+      genre: "Story-driven Visual Novel / Drama",
+      primaryCta: "Wishlist on Steam",
+      detailCta: "See more",
+      detailUrl: funeral.path,
+      titleLink: funeral.path,
+      backgroundImage: funeral.artwork,
+      widgetTitle: "Wishlist on Steam",
+      steamFallback: true,
+    },
     {
       title: "Ashes of the Damned: The Forgotten Ward",
       year: "Released",
@@ -324,7 +337,7 @@ export default function CrimsonCloudGamesWebsite() {
                     }}
                     className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                   >
-                    Join newsletter
+                    Join mailing list
                   </a>
                 </div>
               </div>
@@ -418,6 +431,7 @@ export default function CrimsonCloudGamesWebsite() {
                         </h3>
                       )}
 
+                      {game.tagline && <p className="relative z-10 mt-4 text-lg font-medium text-amber-100">{game.tagline}</p>}
                       <div className="relative z-10 mt-8 space-y-4">
                         <div className="rounded-3xl border border-white/10 bg-black/10 p-4 shadow-lg shadow-black/10 backdrop-blur-sm">
                           <div className="mb-3 flex items-center justify-between gap-4">
@@ -432,6 +446,9 @@ export default function CrimsonCloudGamesWebsite() {
                             titleFallback={game.title}
                             url={game.storeUrl}
                           />
+                          {game.steamFallback && (
+                            <p className="mt-3 text-sm text-white/75">Widget unavailable? <a href={game.storeUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Wishlist on Steam</a></p>
+                          )}
                         </div>
 
                       </div>
@@ -525,13 +542,13 @@ export default function CrimsonCloudGamesWebsite() {
               <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
                 <div>
                   <div className="text-sm font-medium uppercase tracking-[0.18em] text-red-300/80">
-                    Newsletter
+                    Mailing List
                   </div>
                   <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">
-                    Stay updated with my latest game news, updates, and releases
+                    Stay Updated with Crimson Cloud Games
                   </h2>
                   <p className="mt-5 max-w-2xl text-base leading-7 text-white/72">
-                    Get the latest updates on my games directly without relying on social media.
+                    Join our mailing list for game announcements, development updates, and release news. Get updates directly in your inbox without relying on social media.
                   </p>
                 </div>
 
@@ -610,13 +627,13 @@ export default function CrimsonCloudGamesWebsite() {
 
                     {newsletterSubmitted ? (
                       <div className="mt-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-emerald-100">
-                        Thank you for subscribing to the newsletter.
+                        Thank you for subscribing to the mailing list.
                       </div>
                     ) : null}
 
                     <iframe
                       name="newsletterTarget"
-                      title="newsletter signup result"
+                      title="mailing list signup result"
                       style={{ display: "none" }}
                       aria-hidden="true"
                     />

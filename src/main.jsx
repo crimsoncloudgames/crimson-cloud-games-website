@@ -1,3 +1,4 @@
+import MyFuneralIsSundayPage from "./MyFuneralIsSundayPage.jsx"
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
+        <Route path="/my-funeral-is-sunday/" element={<MyFuneralIsSundayPage />} />
         <Route path="/" element={<App />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/newsletter-thanks" element={<NewsletterThanks />} />
